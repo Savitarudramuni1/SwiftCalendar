@@ -17,6 +17,12 @@
 		EFAC7B22203AE3B900DD35D3 /* CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC7B21203AE3B900DD35D3 /* CalendarTests.swift */; };
 		EFAC7B2D203AE3B900DD35D3 /* CalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC7B2C203AE3B900DD35D3 /* CalendarUITests.swift */; };
 		EFAC7B40203AE96700DD35D3 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC7B3F203AE96700DD35D3 /* CalendarModel.swift */; };
+		EFBAAB0720407F3E0044497D /* CalendarOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBAAB0620407F3E0044497D /* CalendarOperator.swift */; };
+		EFC403AE2064060600B96E3C /* WeatherForeCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC403AD2064060600B96E3C /* WeatherForeCast.swift */; };
+		EFC403B02064233A00B96E3C /* ForeCastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC403AF2064233A00B96E3C /* ForeCastView.swift */; };
+		EFC611702062738D00363B2F /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC6116F2062738D00363B2F /* AgendaViewController.swift */; };
+		EFC61172206277BD00363B2F /* AgendaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC61171206277BD00363B2F /* AgendaCell.swift */; };
+		EFC6117420627AD400363B2F /* DayActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC6117320627AD400363B2F /* DayActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EFC6119020627CA100363B2F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		EF8BCA52203C6AC300C3FDD7 /* CalendatMonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendatMonthViewController.swift; sourceTree = "<group>"; };
 		EF8BCA54203C6C5400C3FDD7 /* CalendarWeekViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekViewCell.swift; sourceTree = "<group>"; };
@@ -53,6 +72,13 @@
 		EFAC7B2C203AE3B900DD35D3 /* CalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUITests.swift; sourceTree = "<group>"; };
 		EFAC7B2E203AE3B900DD35D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFAC7B3F203AE96700DD35D3 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		EFBAAB0620407F3E0044497D /* CalendarOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarOperator.swift; sourceTree = "<group>"; };
+		EFC403AD2064060600B96E3C /* WeatherForeCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForeCast.swift; sourceTree = "<group>"; };
+		EFC403AF2064233A00B96E3C /* ForeCastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastView.swift; sourceTree = "<group>"; };
+		EFC6116F2062738D00363B2F /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
+		EFC61171206277BD00363B2F /* AgendaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaCell.swift; sourceTree = "<group>"; };
+		EFC6117320627AD400363B2F /* DayActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayActivity.swift; sourceTree = "<group>"; };
+		EFC6119820627D1300363B2F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +109,7 @@
 		EFAC7B00203AE3B800DD35D3 = {
 			isa = PBXGroup;
 			children = (
+				EFC6119820627D1300363B2F /* MyPlayground.playground */,
 				EFAC7B0B203AE3B800DD35D3 /* Calendar */,
 				EFAC7B20203AE3B900DD35D3 /* CalendarTests */,
 				EFAC7B2B203AE3B900DD35D3 /* CalendarUITests */,
@@ -112,6 +139,12 @@
 				EF8BCA52203C6AC300C3FDD7 /* CalendatMonthViewController.swift */,
 				EF8BCA54203C6C5400C3FDD7 /* CalendarWeekViewCell.swift */,
 				EF8BCA56203C6D8D00C3FDD7 /* CalendarDayViewCell.swift */,
+				EFBAAB0620407F3E0044497D /* CalendarOperator.swift */,
+				EFC6116F2062738D00363B2F /* AgendaViewController.swift */,
+				EFC61171206277BD00363B2F /* AgendaCell.swift */,
+				EFC6117320627AD400363B2F /* DayActivity.swift */,
+				EFC403AD2064060600B96E3C /* WeatherForeCast.swift */,
+				EFC403AF2064233A00B96E3C /* ForeCastView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -145,6 +178,7 @@
 				EFAC7B06203AE3B800DD35D3 /* Frameworks */,
 				EFAC7B07203AE3B800DD35D3 /* Resources */,
 				EFAC7B3E203AE87600DD35D3 /* ShellScript */,
+				EFC6119020627CA100363B2F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,7 +310,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -287,9 +321,15 @@
 			files = (
 				EFAC7B40203AE96700DD35D3 /* CalendarModel.swift in Sources */,
 				EFAC7B0D203AE3B800DD35D3 /* AppDelegate.swift in Sources */,
+				EFC6117420627AD400363B2F /* DayActivity.swift in Sources */,
 				EF8BCA55203C6C5400C3FDD7 /* CalendarWeekViewCell.swift in Sources */,
+				EFC61172206277BD00363B2F /* AgendaCell.swift in Sources */,
 				EF8BCA53203C6AC300C3FDD7 /* CalendatMonthViewController.swift in Sources */,
 				EF8BCA57203C6D8D00C3FDD7 /* CalendarDayViewCell.swift in Sources */,
+				EFC611702062738D00363B2F /* AgendaViewController.swift in Sources */,
+				EFC403B02064233A00B96E3C /* ForeCastView.swift in Sources */,
+				EFBAAB0720407F3E0044497D /* CalendarOperator.swift in Sources */,
+				EFC403AE2064060600B96E3C /* WeatherForeCast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

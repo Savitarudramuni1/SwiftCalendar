@@ -11,6 +11,7 @@ import Foundation
 struct CalendarDay {
   var day: Int
   var dayName: String
+  var weekDay: Int
   var currentDay: Bool = false
 }
 
