@@ -13,6 +13,7 @@ struct CalendarDay {
   var dayName: String
   var weekDay: Int
   var currentDay: Bool = false
+  var date:Date?
 }
 
 struct CalendarWeek {

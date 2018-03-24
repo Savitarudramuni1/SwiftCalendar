@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EventKit
 
 struct DayActivity {
   var time: String
@@ -15,4 +16,11 @@ struct DayActivity {
   var actityDescription: String
   var location: String
 
+}
+
+struct DayEvent {
+  var date: Date?
+  var displayDate: String?
+  var events: [EKEvent] =  [EKEvent]()
+  
 }

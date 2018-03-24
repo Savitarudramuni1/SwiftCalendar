@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
    _  =  WeatherForCast.sharedInstrance
+
+
+    let calendarMonthController: CalendatMonthViewController =  CalendatMonthViewController()
+    let navigationController: UINavigationController =  UINavigationController(rootViewController: calendarMonthController)
+    window?.rootViewController = navigationController
     return true
   }
 

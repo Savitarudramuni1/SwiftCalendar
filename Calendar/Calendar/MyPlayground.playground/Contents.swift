@@ -188,6 +188,8 @@ o.getforeCast()
 
 class CalendarEventStore {
 
+ 
+
   func getEvents(){
     var events: [DayActivity] =  [DayActivity]()
 

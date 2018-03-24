@@ -12,71 +12,50 @@ import UIKit
 class ForeCastView: UIView {
 
   var dayLabel: UILabel!
-  var foreCastImage: UIImageView!
+  var foreCastImage: ForeCastStatusView!
   var predictionLabel: UILabel!
   var iconStatusLabel: UILabel!
+  var tempLabel: TemparatureView!
 
 
   override init(frame: CGRect) {
     super.init(frame: frame)
 
-    backgroundColor =  UIColor.blue
+    backgroundColor =   UIColor(named: "skyColor")
 
-    foreCastImage =  UIImageView(frame: CGRect(x:(self.frame.size.width -  50) - 10 , y: 10, width: 50, height: 50))
-    foreCastImage.image = UIImage(named: "background")
-    foreCastImage.contentMode = .scaleAspectFill
-     addSubview(foreCastImage!)
-    foreCastImage.isUserInteractionEnabled =  true
-
-    iconStatusLabel =  UILabel(frame:CGRect(x:self.frame.size.width -  70 , y: 50, width: 70 , height: 50) )
-    iconStatusLabel.text =  NSLocalizedString("1", comment: "")
-    iconStatusLabel.textColor = UIColor.white
-    iconStatusLabel.numberOfLines = 0
-    iconStatusLabel.font =  UIFont.boldSystemFont(ofSize: 10)
-    self.addSubview(iconStatusLabel)
+    foreCastImage =  ForeCastStatusView(frame: CGRect(x:(self.frame.size.width -  100) - 10 , y: 10, width: 100, height: 100))
+    addSubview(foreCastImage)
 
 
     dayLabel =  UILabel(frame:CGRect(x:10 , y: 10, width: self.frame.size.width -  50 , height: 50) )
     dayLabel.text =  NSLocalizedString("1", comment: "")
-    dayLabel.textColor = UIColor.white
+    dayLabel.textColor = UIColor.black
     dayLabel.numberOfLines = 0
     dayLabel.font =  UIFont.boldSystemFont(ofSize: 20)
     self.addSubview(dayLabel)
 
-    predictionLabel =  UILabel(frame:CGRect(x:10 , y: 90, width: self.frame.size.width, height: 50) )
+    tempLabel =  TemparatureView(frame:CGRect(x: 20 , y: 60, width:self.frame.size.width -  150 , height:  70) )
+    tempLabel.text =  NSLocalizedString("1", comment: "")
+    tempLabel.textColor = UIColor.black
+    tempLabel.numberOfLines = 0
+    tempLabel.textAlignment = .center
+    tempLabel.font =  UIFont.boldSystemFont(ofSize: 30)
+    self.addSubview(tempLabel)
+    tempLabel.layer.borderWidth =  2
+    tempLabel.layer.borderColor =  UIColor.black.cgColor
+
+    predictionLabel =  UILabel(frame:CGRect(x:10 , y: 150, width: self.frame.size.width, height: 50) )
     predictionLabel.text =  NSLocalizedString("1", comment: "")
-    predictionLabel.textColor = UIColor.white
+    predictionLabel.textColor = UIColor.black
     predictionLabel.numberOfLines = 0
     predictionLabel.font =  UIFont.boldSystemFont(ofSize: 20)
     self.addSubview(predictionLabel)
+
+   foreCastImage.statusIconImageView.frame = CGRect(x:0 , y: 10, width: 50, height: 50)
   }
 
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
-  }
-
-
-  func addForecastBackground(url: String) {
-    foreCastImage?.isHidden =  false
-    if url != "" {
-      DispatchQueue.global().async {
-        if let imageUrl : URL =  URL(string: url) {
-          NetworkOperation().getResponseData(url: imageUrl, closure: { (data: Data?, error: Error?) in
-            if data != nil {
-              guard let source:CGImageSource = CGImageSourceCreateWithData(data! as CFData, nil) else {
-                print("image doesn't exist")
-                return
-              }
-              if let image: UIImage = UIImage.animatedImageWithSource(source: source) {
-                DispatchQueue.main.async {
-                  self.foreCastImage?.image = image
-                }
-              }
-            }
-          })
-        }
-      }
-    }
   }
 
 

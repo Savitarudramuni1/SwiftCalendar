@@ -7,14 +7,19 @@
 //
 
 import Foundation
+import EventKit
 
 class CalendarOperator {
 
+ static let shared: CalendarOperator =  CalendarOperator()
 
   let calendar: Calendar = Calendar.current
   var currentMonth  = 0
   var currentYear =  0
   var currentDay  =  0
+
+  let eventStore: EKEventStore =  EKEventStore()
+  let dateFormatter: DateFormatter =  DateFormatter()
 
   var currentMonthData: [CalendarWeek] =  [CalendarWeek]()
 
@@ -48,30 +53,49 @@ class CalendarOperator {
     return dateComponent.date
   }
 
+  func getMonthData(month: Int) -> CalendarMonth {
+    var dateComponent: DateComponents = DateComponents()
+    dateComponent.month = 0
+    if let displayDate =  Calendar.current.date(byAdding: dateComponent, to: Date(), wrappingComponents: false) {
+    dateFormatter.dateFormat =  "MMMM"
+    let info = getFullMonth(date: displayDate,month: month)
+    let weeks: [CalendarWeek] = info.0
+    let month: CalendarMonth =  CalendarMonth(month: weeks, monthName: info.1, currentMonth: month ==  currentMonth)
+      return month
+    } else {
+      return CalendarMonth(month: [], monthName: "", currentMonth: month ==  currentMonth)
+    }
+
+  }
+
   func getCurrentMonthData(month: Int, year: Int) -> [CalendarWeek] {
-    var customDateComponent: DateComponents = DateComponents()
+
     var months: [CalendarWeek] =  [CalendarWeek] ()
 
     if let firstDayOfMonth: Date = getFirstDayOfMonth(month: month, year: year) {
 
-      if let range =  getRangeOfMonth(date: firstDayOfMonth) {
+      months =  getFullMonth(date: firstDayOfMonth,month: month).0
+    }
+    return months
+  }
+
+  func getFullMonth(date: Date,month: Int) -> ([CalendarWeek] , String) {
+     var customDateComponent: DateComponents = DateComponents()
+    var monthName: String = ""
+      var months: [CalendarWeek] =  [CalendarWeek] ()
+      if let range =  getRangeOfMonth(date: date) {
         var weeekIndex: Int  =  1
         var weeks: CalendarWeek =  CalendarWeek(week: weeekIndex, days: [CalendarDay](), weekName: "")
         for i in range.lowerBound...range.upperBound-1 {
           customDateComponent.day =  i
           customDateComponent.month = month
-          customDateComponent.year =  year
+       //   customDateComponent.year =  year
           customDateComponent.calendar = calendar
           if let formDate = customDateComponent.date {
+            monthName = dateFormatter.string(from: formDate)
             let comm = calendar.dateComponents([.weekday,.month,.year,.weekdayOrdinal,.weekOfMonth], from: formDate)
-            var dayObj: CalendarDay = CalendarDay(day: i, dayName: "\(comm.weekOfMonth!)", weekDay: comm.weekday ?? 0, currentDay: false)
-            if currentDay ==  i && currentMonth == comm.month && currentYear == comm.year {
-            dayObj.currentDay = true
-            } else {
-              dayObj.currentDay = false
-            }
+            let dayObj: CalendarDay = CalendarDay(day: i, dayName: "\(comm.weekOfMonth!)", weekDay: comm.weekday ?? 0, currentDay: (currentDay ==  i && currentMonth == comm.month && currentYear == comm.year), date: formDate)
             if comm.weekOfMonth == weeekIndex {
-              print("Day",i,"weekDay",comm.weekday ?? 0)
               weeks.days.append(dayObj)
             }
             else {
@@ -82,17 +106,12 @@ class CalendarOperator {
             }
 
           }
-          else {
-            print("no date")
-          }
-
         }
         if weeks.days.count > 0 {
           months.append(weeks)
         }
       }
+      return (months,monthName)
     }
-    return months
-  }
 
 }

@@ -8,10 +8,13 @@
 
 import Foundation
 import UIKit
+import EventKit
 
 class AgendaCell: UITableViewCell {
 
   let cellIdentifier: String =  "agendaCell"
+
+  let dateFormatter: DateFormatter =  CalendarOperator.shared.dateFormatter
 
   private var timeLabel: UILabel?
   private var activityView: UIView?
@@ -19,19 +22,21 @@ class AgendaCell: UITableViewCell {
   private var peopleView: UIView?
   private var locationView: UIView?
 
-  private var _activity: DayActivity?
-  var activity:DayActivity? {
-    get {return _activity}
+  private var _event: EKEvent?
+  var event:EKEvent? {
+    get {return _event}
     set {
-      _activity =  newValue
-      timeLabel?.text = _activity?.time
-      activiytMainTitle?.text = _activity?.actityDescription
+      _event =  newValue
+      timeLabel?.text = dateFormatter.string(from: _event!.occurrenceDate)
+      activiytMainTitle?.text = _event?.title
 
     }
   }
 
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: "agendaCell")
+
+    dateFormatter.dateFormat =  "hh:ss a"
     createUI()
   }
 

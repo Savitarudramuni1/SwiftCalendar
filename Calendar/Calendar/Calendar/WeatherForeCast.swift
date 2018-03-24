@@ -66,7 +66,7 @@ class WeatherForCast {
   public static let sharedInstrance = WeatherForCast()
 
   fileprivate let key: String =  "47aa219fedbaae7d"
-  fileprivate var url: String = "http://api.wunderground.com/api/47aa219fedbaae7d/forecast/geolookup/conditions/q/IN/bangalore.json"
+  fileprivate var url: String = "http://api.wunderground.com/api/47aa219fedbaae7d/forecast/geolookup/conditions/q/IN/Mumbai.json"
 
   fileprivate let networkHandler  = NetworkOperation()
 

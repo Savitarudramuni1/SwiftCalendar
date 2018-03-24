@@ -12,7 +12,7 @@ import UIKit
 class CalendarDayViewCell: UICollectionViewCell {
 
   var dayLabel: UILabel!
-  var foreCastImage: UIImageView?
+  var foreCastView: ForeCastStatusView?
 
   private var _dayModel: CalendarDay?
   var dayModel: CalendarDay?
@@ -30,17 +30,19 @@ class CalendarDayViewCell: UICollectionViewCell {
       {
         dayLabel.text = "\(_dayModel!.day)"
         if _dayModel?.currentDay == true {
-           foreCastImage?.isHidden =  false
+           foreCastView?.isHidden =  false
+           foreCastView?.updateView()
+          self.backgroundView =  foreCastView
+           foreCastView?.statusLabel.textColor =  UIColor.black
+            foreCastView?.statusLabel.font =  UIFont.boldSystemFont(ofSize: 10)
+            foreCastView?.statusLabel.textAlignment = .right
+           foreCastView?.statusLabel.adjustsFontSizeToFitWidth =  true
            dayLabel.backgroundColor = UIColor.clear
-          bringSubview(toFront: dayLabel!)
-          //  dayLabel.backgroundColor =  UIColor.lightGray
-          if let imageUrl: String =  WeatherForCast.sharedInstrance.todayForeCast.iconUrl, imageUrl != ""{
-            addForecastBackground(url: imageUrl)
-          }
         }
         else
         {
-           foreCastImage?.isHidden =  true
+           foreCastView?.isHidden =  true
+          self.backgroundView =  nil
           dayLabel.backgroundColor = UIColor.clear
         }
       }
@@ -51,12 +53,7 @@ class CalendarDayViewCell: UICollectionViewCell {
   override init(frame: CGRect) {
     super.init(frame: frame)
 
-    foreCastImage =  UIImageView(frame: self.frame)
-    foreCastImage?.image = UIImage(named: "background")
-    foreCastImage?.contentMode = .scaleAspectFill
-   // addSubview(foreCastImage!)
-    foreCastImage?.isUserInteractionEnabled =  true
-     self.backgroundView =  foreCastImage!
+    foreCastView =  ForeCastStatusView(frame: frame)
 
 
     dayLabel =  UILabel(frame: frame)
@@ -65,9 +62,6 @@ class CalendarDayViewCell: UICollectionViewCell {
     dayLabel.font =  UIFont.boldSystemFont(ofSize: 20)
     self.addSubview(dayLabel)
 
-
-
-    foreCastImage?.isHidden =  true
 
 
   }
@@ -85,28 +79,6 @@ class CalendarDayViewCell: UICollectionViewCell {
 
   }
 
-  func addForecastBackground(url: String) {
-     foreCastImage?.isHidden =  false
-    if url != "" {
-    DispatchQueue.global().async {
-      if let imageUrl : URL =  URL(string: url) {
-        NetworkOperation().getResponseData(url: imageUrl, closure: { (data: Data?, error: Error?) in
-          if data != nil {
-            guard let source:CGImageSource = CGImageSourceCreateWithData(data! as CFData, nil) else {
-              print("image doesn't exist")
-              return
-            }
-            if let image: UIImage = UIImage.animatedImageWithSource(source: source) {
-              DispatchQueue.main.async {
-                self.foreCastImage?.image = image
-              }
-            }
-          }
-        })
-        }
-      }
-  }
-  }
 }
 
 

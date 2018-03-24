@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF3E8A1520652434007B147E /* ForeCastStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E8A1420652434007B147E /* ForeCastStatusView.swift */; };
 		EF8BCA53203C6AC300C3FDD7 /* CalendatMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BCA52203C6AC300C3FDD7 /* CalendatMonthViewController.swift */; };
 		EF8BCA55203C6C5400C3FDD7 /* CalendarWeekViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BCA54203C6C5400C3FDD7 /* CalendarWeekViewCell.swift */; };
 		EF8BCA57203C6D8D00C3FDD7 /* CalendarDayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8BCA56203C6D8D00C3FDD7 /* CalendarDayViewCell.swift */; };
@@ -23,6 +24,8 @@
 		EFC611702062738D00363B2F /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC6116F2062738D00363B2F /* AgendaViewController.swift */; };
 		EFC61172206277BD00363B2F /* AgendaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC61171206277BD00363B2F /* AgendaCell.swift */; };
 		EFC6117420627AD400363B2F /* DayActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC6117320627AD400363B2F /* DayActivity.swift */; };
+		EFF03D2C2066978E009ED0E5 /* TemparatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF03D2B2066978E009ED0E5 /* TemparatureView.swift */; };
+		EFF03D2E2066AC9B009ED0E5 /* EmptyEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF03D2D2066AC9B009ED0E5 /* EmptyEventCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EF3E8A1420652434007B147E /* ForeCastStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastStatusView.swift; sourceTree = "<group>"; };
+		EF536D4E20651C48006622D8 /* MyUIPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyUIPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EF8BCA52203C6AC300C3FDD7 /* CalendatMonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendatMonthViewController.swift; sourceTree = "<group>"; };
 		EF8BCA54203C6C5400C3FDD7 /* CalendarWeekViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekViewCell.swift; sourceTree = "<group>"; };
 		EF8BCA56203C6D8D00C3FDD7 /* CalendarDayViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayViewCell.swift; sourceTree = "<group>"; };
@@ -79,6 +84,8 @@
 		EFC61171206277BD00363B2F /* AgendaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaCell.swift; sourceTree = "<group>"; };
 		EFC6117320627AD400363B2F /* DayActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayActivity.swift; sourceTree = "<group>"; };
 		EFC6119820627D1300363B2F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EFF03D2B2066978E009ED0E5 /* TemparatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemparatureView.swift; sourceTree = "<group>"; };
+		EFF03D2D2066AC9B009ED0E5 /* EmptyEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEventCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +116,7 @@
 		EFAC7B00203AE3B800DD35D3 = {
 			isa = PBXGroup;
 			children = (
+				EF536D4E20651C48006622D8 /* MyUIPlayground.playground */,
 				EFC6119820627D1300363B2F /* MyPlayground.playground */,
 				EFAC7B0B203AE3B800DD35D3 /* Calendar */,
 				EFAC7B20203AE3B900DD35D3 /* CalendarTests */,
@@ -145,6 +153,9 @@
 				EFC6117320627AD400363B2F /* DayActivity.swift */,
 				EFC403AD2064060600B96E3C /* WeatherForeCast.swift */,
 				EFC403AF2064233A00B96E3C /* ForeCastView.swift */,
+				EF3E8A1420652434007B147E /* ForeCastStatusView.swift */,
+				EFF03D2B2066978E009ED0E5 /* TemparatureView.swift */,
+				EFF03D2D2066AC9B009ED0E5 /* EmptyEventCell.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -319,7 +330,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFF03D2E2066AC9B009ED0E5 /* EmptyEventCell.swift in Sources */,
+				EFF03D2C2066978E009ED0E5 /* TemparatureView.swift in Sources */,
 				EFAC7B40203AE96700DD35D3 /* CalendarModel.swift in Sources */,
+				EF3E8A1520652434007B147E /* ForeCastStatusView.swift in Sources */,
 				EFAC7B0D203AE3B800DD35D3 /* AppDelegate.swift in Sources */,
 				EFC6117420627AD400363B2F /* DayActivity.swift in Sources */,
 				EF8BCA55203C6C5400C3FDD7 /* CalendarWeekViewCell.swift in Sources */,
